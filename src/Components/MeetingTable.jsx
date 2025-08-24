@@ -289,31 +289,58 @@ const MeetingTable = () => {
                                         onChange={handleSelectAll} />
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '160px' }}>
-                                    Date & Time
+                                    <div className="flex items-center gap-2">
+                                        Date & Time
+                                        <img src="/icons/Arrows.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2  text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '410px' }}>
-                                    Status
+                                    <div className="flex items-center gap-2">
+                                        Status
+                                        <img src="/icons/Arrows.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '90px' }}>
-                                    Type
+                                    <div className="flex items-center gap-2">
+                                        Type
+                                        <img src="/icons/Type.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '220px' }}>
-                                    Buyer Name
+                                    <div className="flex items-center gap-2">
+                                        Buyer Name
+                                        <img src="/icons/BuyerName.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '130px' }}>
-                                    Brand
+                                    <div className="flex items-center gap-2">
+                                        Brand
+                                        <img src="/icons/BuyerName.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '120px' }}>
-                                    Dept.
+                                    <div className="flex items-center gap-2">
+                                        Dept.
+                                        <img src="/icons/BuyerName.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '220px' }}>
-                                    Title
+                                    <div className="flex items-center gap-2">
+                                        Title
+                                        <img src="/icons/Arrows.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '160px' }}>
-                                    Meeting Date
+                                    <div className="flex items-center gap-2">
+                                        Meeting Date
+                                        <img src="/icons/Arrows.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-800 uppercase tracking-wider" style={{ width: '160px' }}>
-                                    Participants
+                                    <div className="flex items-center gap-2">
+                                        Participants
+                                        <img src="/icons/Arrows.svg" alt="" className="w-3 h-3" />
+                                    </div>
                                 </th>
                                 <th className="px-4 py-2 sticky right-[0] z-[50] bg-gray-100  text-left text-xs font-medium text-gray-800 uppercase tracking-wider drop-shadow-[-4px_0_4px_rgba(0,0,0,0.12)]" style={{ width: '80px' }}>
                                     Action

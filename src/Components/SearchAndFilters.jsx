@@ -16,7 +16,7 @@ const SearchAndFilters = ({ searchTerm, setSearchTerm, filters, setFilters }) =>
                 </div>
 
                 <select
-                    className="px-3 py-2 border border-gray-200 rounded-lg  text-sm flex-shrink-0 min-w-fit"
+                    className="px-3 py-2 border border-gray-200 rounded-lg  text-sm flex-shrink-0 min-w-fit scrollable-select"
                     value={filters?.buyerName}
                     onChange={(e) => setFilters(prev => ({ ...prev, buyerName: e.target.value }))}
                 >
@@ -27,10 +27,6 @@ const SearchAndFilters = ({ searchTerm, setSearchTerm, filters, setFilters }) =>
                     <option value="Peach Corp.">Peach Corp.</option>
                     <option value="Banana Solutions">Banana Solutions</option>
                     <option value="Coconut Group">Coconut Group</option>
-                    <option value="Lemon Technologies">Lemon Technologies</option>
-                    <option value="Grapefruit LLC">Grapefruit LLC</option>
-                    <option value="Kiwi Systems">Kiwi Systems</option>
-                    <option value="Orange Enterprises">Orange Enterprises</option>
                 </select>
 
                 <select
@@ -45,10 +41,6 @@ const SearchAndFilters = ({ searchTerm, setSearchTerm, filters, setFilters }) =>
                     <option value="Peach">Peach</option>
                     <option value="Banana">Banana</option>
                     <option value="Coconut">Coconut</option>
-                    <option value="Lemon">Lemon</option>
-                    <option value="Grapefruit">Grapefruit</option>
-                    <option value="Kiwi">Kiwi</option>
-                    <option value="Orange">Orange</option>
                 </select>
 
                 <select
