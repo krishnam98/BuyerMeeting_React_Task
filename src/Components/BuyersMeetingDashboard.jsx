@@ -137,7 +137,6 @@ const meetingsData = [
 
 const BuyerMeetingDashboard = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    const [activeFilter, setActiveFilter] = useState('all');
 
     return (
         <div className="min-h-screen bg-gray-50 flex overflow-hidden">
@@ -170,8 +169,6 @@ const BuyerMeetingDashboard = () => {
                             </div>
                         </div>
 
-                        <FilterTabs activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
-                        <SearchAndFilters />
                     </div>
 
                     {/* Table Container - Scrollable */}

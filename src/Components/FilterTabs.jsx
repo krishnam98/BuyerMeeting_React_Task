@@ -1,8 +1,8 @@
 const FilterTabs = ({ activeFilter, setActiveFilter }) => {
     const tabs = [
-        { key: 'all', label: 'All', count: 100 },
-        { key: 'draft', label: 'Draft', count: 50 },
-        { key: 'archive', label: 'Archive', count: 75 }
+        { key: 'All', label: 'all', count: 10 },
+        { key: 'Draft', label: 'Draft', count: 1 },
+        { key: 'Archive', label: 'Archived', count: 1 }
     ];
 
     return (
@@ -10,14 +10,14 @@ const FilterTabs = ({ activeFilter, setActiveFilter }) => {
             {tabs.map((tab) => (
                 <button
                     key={tab.key}
-                    onClick={() => setActiveFilter(tab.key)}
-                    className={`px-2 py-2 rounded-md text-sm font-medium flex items-center space-x-2 ${activeFilter === tab.key
+                    onClick={() => setActiveFilter(tab.label)}
+                    className={`px-2 py-2 rounded-md text-sm font-medium flex items-center space-x-2 ${activeFilter === tab.label
                         ? 'bg-[#EAD9FF] text-purple-700'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                         }`}
                 >
-                    <span>{tab.label}</span>
-                    <span className={`px-2 py-0.5 rounded-md text-xs ${activeFilter === tab.key
+                    <span>{tab.key}</span>
+                    <span className={`px-2 py-0.5 rounded-md text-xs ${activeFilter === tab.label
                         ? 'bg-purple-700 text-white'
                         : 'bg-gray-200 text-gray-600'
                         }`}>
