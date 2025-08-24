@@ -6,6 +6,7 @@ import { MoreHorizontal } from 'lucide-react';
 import ParticipantsTooltip from './ParticipantsTooltip';
 import SearchAndFilters from './SearchAndFilters';
 import FilterTabs from './FilterTabs';
+import ActionList from './ActionList';
 
 const meetingsData = [
     {
@@ -138,6 +139,10 @@ const MeetingTable = () => {
     const [selectedRows, setSelectedRows] = useState(new Set());
     const [selectAll, setSelectAll] = useState(false);
 
+    // Action List states
+    const [actionListOpen, setActionListOpen] = useState(false);
+    const [actionPosition, setActionPosition] = useState({ x: 0, y: 0 });
+    const [actionMeeting, setActionMeeting] = useState(null);
 
     // Search and filter states
     const [searchTerm, setSearchTerm] = useState('');
@@ -203,7 +208,6 @@ const MeetingTable = () => {
             filtered = filtered.filter(meeting => meeting.status === filters.tabs);
         }
 
-
         return filtered;
     }, [searchTerm, filters]);
 
@@ -244,6 +248,25 @@ const MeetingTable = () => {
             setSelectedRows(new Set(filteredMeetings.map(meeting => meeting.id)));
             setSelectAll(true);
         }
+    };
+
+    const handleActionClick = (e, meeting) => {
+        e.stopPropagation();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        setActionPosition({
+            x: rect.left + scrollLeft - 140, // Position to the left of the button
+            y: rect.bottom + scrollTop + 4   // Position below the button
+        });
+        setActionMeeting(meeting);
+        setActionListOpen(true);
+    };
+
+    const handleCloseActionList = () => {
+        setActionListOpen(false);
+        setActionMeeting(null);
     };
 
     return (
@@ -345,9 +368,18 @@ const MeetingTable = () => {
                                         />}
                                     </td>
                                     <td className="px-4 py-3 z-10 sticky bg-white right-[0] drop-shadow-[-4px_0_4px_rgba(0,0,0,0.12)]" style={{ width: '80px' }}>
-                                        <button className="p-1 rounded hover:bg-gray-100">
+                                        <button
+                                            className="p-1 rounded hover:bg-gray-100"
+                                            onClick={(e) => handleActionClick(e, meeting.id)}
+                                        >
                                             <MoreHorizontal className="w-3 h-3 text-gray-400" />
                                         </button>
+                                        {actionMeeting === meeting.id && <ActionList
+                                            isOpen={actionListOpen}
+                                            onClose={handleCloseActionList}
+                                            position={actionPosition}
+                                        />}
+
                                     </td>
                                 </tr>
                             ))}
@@ -375,6 +407,9 @@ const MeetingTable = () => {
                         </div>
                     </div>
                 )}
+
+
+
             </div>
         </div>
     );

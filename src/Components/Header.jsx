@@ -8,7 +8,6 @@ import { useState } from 'react';
 import ChatComponent from './ChatComponent';
 import NotificationComponent from './NotificationComponent';
 
-
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -28,6 +27,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
     const closeChat = () => {
         setIsChatOpen(false);
     };
+
     return (
         <header className="bg-white shadow-sm border-b px-4 py-2 flex items-center justify-between flex-shrink-0 h-14">
             <div className="flex items-center space-x-3">
@@ -73,7 +73,16 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                     <ChatComponent isOpen={isChatOpen} onClose={closeChat} />
                 </div>
                 <div className="flex items-center space-x-2">
-                    <div className="w-7 h-7 bg-gray-300 rounded-full"></div>
+                    <img
+                        src="/profile.png"
+                        alt="Profile"
+                        className="w-7 h-7 rounded-full object-cover"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextElementSibling.style.display = 'block';
+                        }}
+                    />
+                    <div className="w-7 h-7 bg-gray-300 rounded-full hidden"></div>
                     <div>
                         <p className="text-xs font-medium text-gray-900">Mohd Saleem</p>
                         <p className="text-xs text-gray-500">Admin</p>
@@ -83,4 +92,5 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
         </header>
     );
 };
-export default Header;  
+
+export default Header;

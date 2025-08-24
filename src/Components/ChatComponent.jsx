@@ -16,7 +16,6 @@ const ChatComponent = ({ isOpen, onClose }) => {
             <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center space-x-2">
                     <h3 className="text-lg font-semibold text-gray-900">Chat</h3>
-
                 </div>
                 <button
                     onClick={onClose}
@@ -33,12 +32,21 @@ const ChatComponent = ({ isOpen, onClose }) => {
                 {messages.map((message) => (
                     <div key={message.id} className="flex items-start p-3 hover:bg-gray-50 border-b border-gray-100">
                         <div className="flex-shrink-0 mr-3">
-                            <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+                            <img
+                                src="/profile.png"
+                                alt="Profile"
+                                className="w-10 h-10 rounded-full object-cover"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.nextElementSibling.style.display = 'flex';
+                                }}
+                            />
+                            <div className="w-10 h-10 bg-gray-300 rounded-full items-center justify-center hidden">
                                 <User className="w-5 h-5 text-gray-600" />
                             </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between ">
+                            <div className="flex items-center justify-between">
                                 <p className="text-sm font-medium text-[#676767]">New Message</p>
                                 <button className="p-1 hover:bg-gray-200 rounded-full">
                                     <X className="w-3 h-3 text-gray-400" />
